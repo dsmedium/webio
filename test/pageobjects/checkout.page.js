@@ -11,11 +11,11 @@ class CheckoutPage extends Page {
    */
 
   get removeicon() {
-    return $(".blockListProduct__delete");
+    return $("//button[contains(@class, 'blockListProduct__delete')]");
   }
 
-  get emptyiconText() {
-    return $(".wishlistNoProducts__icon");
+  get emptywhishlist() {
+    return $("//p[contains(@class, 'wishlistNoProducts__text')]");
   }
 
   /**
@@ -23,6 +23,9 @@ class CheckoutPage extends Page {
    * e.g. to login using username and password
    */
   removefromcart() {
+    this.removeicon.waitForClickable({
+      timeout: 5000,
+    });
     this.removeicon.click();
   }
 

@@ -21,9 +21,7 @@ class LoginPage extends Page {
     return $("//input[@type='password']");
   }
   get btnSubmit() {
-    return $(
-      '//*[@id="app-root"]/div/div[1]/div/div[1]/div/div[2]/form/button'
-    );
+    return $('button[data-testid="login_reg_submit_btn"]');
   }
 
   /**

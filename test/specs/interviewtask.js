@@ -4,8 +4,9 @@ const LoginPage = require("../pageobjects/login.page");
 const LandingPage = require("../pageobjects/landingpage.page");
 const MobelPage = require("../pageobjects/mobel.page");
 const CheckoutPage = require("../pageobjects/checkout.page");
+const checkoutPage = require("../pageobjects/checkout.page");
 
-describe("My Login application", () => {
+describe("Add and remove the item from cart", () => {
   it("should search mobel", () => {
     LandingPage.open();
     LandingPage.search("möbel");
@@ -27,7 +28,9 @@ describe("My Login application", () => {
   it("should remove item from cart", () => {
     CheckoutPage.open();
     CheckoutPage.removefromcart();
-    expect(MobelPage.carticon.isExisting() === false);
-    browser.pause();
+
+    expect(checkoutPage.emptywhishlist).toHaveTextContaining(
+      " ist momentan leer"
+    );
   });
 });
